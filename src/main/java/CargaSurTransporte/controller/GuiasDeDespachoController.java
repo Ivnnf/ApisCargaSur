@@ -72,6 +72,12 @@ public class GuiasDeDespachoController {
         return ResponseEntity.noContent().build();   // 204 No Content
     }
 
+    @PutMapping("/{id}/anular")
+    public ResponseEntity<GuiasDeDespacho> anular(@PathVariable Long id) {
+        return ResponseEntity.ok(service.anular(id));
+    }
+
+
 
 
 }

@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/facturacion")
 public class FacturaController {
@@ -29,4 +31,10 @@ public class FacturaController {
         Factura f = facturaService.obtener(id);
         return ResponseEntity.ok(f);
     }
+
+    @GetMapping("/listarPorCliente/{idCliente}")
+    public ResponseEntity<List<Factura>> listarPorCliente(@PathVariable Long idCliente) {
+        return ResponseEntity.ok(facturaService.listarPorCliente(idCliente));
+    }
+
 }

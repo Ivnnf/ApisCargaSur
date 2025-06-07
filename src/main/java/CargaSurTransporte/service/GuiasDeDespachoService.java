@@ -108,5 +108,18 @@ public class GuiasDeDespachoService {
         repo.deleteById(id);
     }
 
+    public GuiasDeDespacho anular(Long id) {
+        GuiasDeDespacho g = obtenerPorId(id);
+
+        if (g.getEstado() == GuiasDeDespacho.EstadoGuia.ENTREGADA) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT,
+                    "La guía ya fue entregada y no puede anularse.");
+        }
+
+        g.setEstado(GuiasDeDespacho.EstadoGuia.ANULADA);
+        return repo.save(g);
+    }
+
+
 
 }

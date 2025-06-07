@@ -69,4 +69,10 @@ public class SolicitudTransporteController {
         service.eliminar(id);
         return ResponseEntity.noContent().build();   // 204 No Content
     }
+
+    @GetMapping("/listarPorCliente/{idCliente}")
+    public ResponseEntity<List<SolicitudTransporte>> listarPorCliente(@PathVariable Long idCliente) {
+        return ResponseEntity.ok(service.listarPorCliente(idCliente));
+    }
+
 }

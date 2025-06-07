@@ -9,6 +9,6 @@ public interface SolicitudTransporteRepository
         extends JpaRepository<SolicitudTransporte, Long> {
 
     List<SolicitudTransporte> findAll();
-
+    List<SolicitudTransporte> findByClienteId(Long clienteId);
 
 }

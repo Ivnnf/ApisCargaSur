@@ -21,6 +21,12 @@ public class SolicitudTransporteService {
         this.repo = repo;
     }
 
+
+    public List<SolicitudTransporte> listarPorCliente(Long clienteId) {
+        return repo.findByClienteId(clienteId);
+    }
+
+
     public List<SolicitudTransporte> findAll() {
         return repo.findAll();
     }

@@ -14,6 +14,10 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "cliente_id", nullable = false)
+    private Long clienteId;
+
+
     private String cliente;
 
     @Column(name = "monto_total", nullable = false)

@@ -50,7 +50,7 @@ public class GuiasDeDespacho {
     /* Estado de la guía */
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 15)
-    private EstadoGuia estado;      // GENERADA, EMITIDA, ENTREGADA
+    private EstadoGuia estado;      // GENERADA, EMITIDA, ENTREGADA, ANULADA
 
     /* Firma digital del receptor */
     @Column(columnDefinition = "TEXT")      // Base-64 o JSON con info de firma
@@ -62,6 +62,10 @@ public class GuiasDeDespacho {
     public enum EstadoGuia {
         GENERADA,
         EMITIDA,      // después de /PUT (si requieres “emitir”)
-        ENTREGADA     // después de /firma-digital
+        ENTREGADA,// después de /firma-digital
+        ANULADA
     }
+
+
+
 }
