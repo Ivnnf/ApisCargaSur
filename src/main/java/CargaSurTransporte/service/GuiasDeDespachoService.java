@@ -80,7 +80,7 @@ public class GuiasDeDespachoService {
 
         GuiasDeDespacho g = obtenerPorId(id);          // 404 si no existe
 
-        // Solo se puede firmar una guía EMITIDA
+        // Solo se puede firmar una guía GENERADA
         if (g.getEstado() != GuiasDeDespacho.EstadoGuia.EMITIDA)
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
